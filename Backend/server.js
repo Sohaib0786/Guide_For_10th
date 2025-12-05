@@ -15,8 +15,6 @@ connectDB();
 const app = express();
 const PORT = process.env.PORT || 8080;
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
 
 // Middlewares
 app.use(express.json());
@@ -34,13 +32,7 @@ app.use(
 app.use("/api/auth", authRoutes);
 app.use("/api/chatbot", chatbotRoutes);
 
-// Serve Vite build
-app.use(express.static(path.join(__dirname, "../frontend/dist")));
 
-// Catch-all (Node 22 SAFE)
-app.get(/.*/, (req, res) => {
-  res.sendFile(path.join(__dirname, "../frontend/dist/index.html"));
-});
 
 // Start server
 app.listen(PORT, () => console.log(`Server running on http://localhost:${PORT}`));
