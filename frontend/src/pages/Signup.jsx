@@ -20,7 +20,7 @@ export default function Signup() {
 
     try {
       // Send the full object, as backend now supports all fields
-      const response = await API.post("/auth/register", form);
+      const response = await API.post("api/auth/register", form);
 
       localStorage.setItem("user", JSON.stringify(response.data.user));
       window.dispatchEvent(new Event("storage"));

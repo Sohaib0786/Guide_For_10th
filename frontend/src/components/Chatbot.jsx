@@ -2,13 +2,15 @@ import { useEffect, useState } from "react";
 import { API } from "../services/api";
 
 export default function Chatbot() {
+
   const [open, setOpen] = useState(false);
   const [messages, setMessages] = useState([]);
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);
 
+
   // External trigger listener
-  useEffect(() => {
+      useEffect(() => {
     const handlePrompt = (e) => {
       setOpen(true);
       sendMessage(e.detail);
@@ -27,7 +29,7 @@ export default function Chatbot() {
     setLoading(true);
 
     try {
-      const { data } = await API.post("/chatbot/ask", { message: msg });
+      const { data } = await API.post("api/chatbot/ask", { message: msg });
 
       setMessages((prev) => [...prev, { sender: "bot", text: data.reply }]);
     } catch (error) {

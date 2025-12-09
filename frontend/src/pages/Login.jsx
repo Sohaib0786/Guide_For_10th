@@ -15,7 +15,7 @@ export default function Login() {
     e.preventDefault();
 
     try {
-      const res = await API.post("/auth/login", form);
+      const res = await API.post("api/auth/login", form);
 
       // Save user
       localStorage.setItem("user", JSON.stringify(res.data.user));
