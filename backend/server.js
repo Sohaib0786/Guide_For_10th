@@ -23,7 +23,7 @@ app.use(cookieParser());
 
 app.use(
   cors({
-    origin: "http://localhost:5173",
+    origin: "https://guide-for-10th.vercel.app/",
     credentials: true,
   })
 );
