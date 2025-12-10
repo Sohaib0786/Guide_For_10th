@@ -1,5 +1,5 @@
 import axios from "axios";
 
 export const API = axios.create({
-  baseURL: "http://localhost:5000/",
+  baseURL: "https://guide-for-10th-backend-l6cg.onrender.com/",
 });
